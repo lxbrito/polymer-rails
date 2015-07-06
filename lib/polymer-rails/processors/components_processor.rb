@@ -21,6 +21,7 @@ module Polymer
       def require_imports
         @component.html_imports.each do |import|
           @context.require_asset absolute_asset_path(import.attributes['href'].value)
+          @context.require_asset path unless path.nil?
           import.remove
         end
       end
